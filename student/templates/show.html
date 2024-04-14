@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students Record</title>
+    <style>
+        /* In-page CSS */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<table class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>KCPEMarks</th>
+        <th>Age</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for employee in employees %}
+    <tr>
+        <td>{{ firstname }}</td>
+        <td>{{ Lastname }}</td>
+        <td>{{ KCPEMarks }}</td>
+        <td>{{ Age}}</td>
+        <td>
+            <button onclick="editRecord('{{ firstname }}')">Edit</button>
+            <button onclick="deleteRecord('{{ Lastname }}')">Delete</button>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<center><button onclick="addRecord()" class="btn btn-primary">Add New Record</button></center>
+
+<script>
+    // In-page JavaScript
+    function editRecord(firstName) {
+        window.location.href = "/edit/" + firstName;
+    }
+
+    function deleteRecord(lastName) {
+        window.location.href = "/delete/" + lastName;
+    }
+
+    function addRecord() {
+        window.location.href = "/emp";
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#    <!DOCTYPE html>#}
+{#    <html lang="en">#}
+{#    <head>#}
+{#        <meta charset="UTF-8">#}
+{#        <title>Students Record</title>#}
+{#         {% load static %}#}
+{#        <link rel="stylesheet" href="{% static 'css/style.css' %}"/>#}
+{#    </head>#}
+{#    <body>#}
+{#    <table class="table table-striped table-bordered table-sm">#}
+{#        <thead class="thead-dark">#}
+{#        <tr>#}
+{#            <th>First Name</th>#}
+{#            <th>Last Name</th>#}
+{#            <th>KCPEMarks</th>#}
+{#            <th>Age</th>#}
+{#            <th>Actions</th>#}
+{#        </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{#    {% for stundent in students %}#}
+{#        <tr>#}
+{#            <td>{{ firstname }}</td>#}
+{#            <td>{{ Lastname }}</td>#}
+{#            <td>{{ KCPEMarks }}</td>#}
+{#            <td>{{ Age}}</td>#}
+{#            <td>#}
+{#                <a href="/edit/{{ firstname}}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>#}
+{#                <a href="/delete/{{ Lastname }}">Delete</a>#}
+{#            </td>#}
+{#        </tr>#}
+{#    {% endfor %}#}
+{#        </tbody>#}
+{#    </table>#}
+{#    <br>#}
+{#    <br>#}
+{#    <center><a href="/emp" class="btn btn-primary">Add New Record</a></center>#}
+{#    </body>#}
+{#    </html>#}
